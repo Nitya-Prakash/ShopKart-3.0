@@ -17,7 +17,7 @@ const Context = (props) => {
         getProducts()
     }, [])
     return (
-        <productContext.Provider value={{ product, setProduct }}>
+        <productContext.Provider value={[product, setProduct]}>
             {props.children}
         </productContext.Provider>
     )
