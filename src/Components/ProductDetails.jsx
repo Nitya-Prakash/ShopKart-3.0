@@ -5,7 +5,7 @@ import { BsLightning } from "react-icons/bs";
 import { productContext } from '../Utils/Context';
 
 const ProductDetails = () => {
-    const [product, setProduct] = useContext(productContext);
+    const { product, setProduct } = useContext(productContext);
     const [singleProdDeatils, setsingleProdDeatils] = useState(null);
 
     const { id } = useParams();

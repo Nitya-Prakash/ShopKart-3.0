@@ -6,6 +6,8 @@ import Context from './Utils/Context'
 import ProductDetails from './Components/ProductDetails'
 import Category from './Components/Category'
 import BuyNow from './Components/BuyNow'
+import Address from './Components/Address'
+import PaymentGateway from './Components/PaymentGateway'
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
           <Route path="/productDetails/:id" element={<ProductDetails />} />
           <Route path="/?category/:category" element={<Category />} />
           <Route path="/buynow" element={<BuyNow />} />
+          <Route path="/address" element={<Address />} />
+          <Route path="/paymentGateway" element={<PaymentGateway />} />
         </Routes>
       </Context>
     </div>

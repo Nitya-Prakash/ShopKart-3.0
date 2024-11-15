@@ -3,8 +3,8 @@ import { productContext } from '../Utils/Context'
 import { Link, useLocation } from 'react-router-dom'
 
 const Products = () => {
-    const [product] = useContext(productContext)
-    console.log(product)
+    const { product } = useContext(productContext)
+    // console.log(product)
     const { search } = useLocation();
     const category = decodeURIComponent(search.split("=")[1]);
     const [filterProducts, setFilterProducts] = useState(null);

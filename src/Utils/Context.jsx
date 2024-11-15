@@ -5,7 +5,18 @@ import axios from '../Utils/Axios'
 export const productContext = createContext()
 
 const Context = (props) => {
-    const [product, setProduct] = useState(null)
+    const [product, setProduct] = useState(null);
+    const [val, setVal] = useState(
+        {
+            userName: "",
+            city: "",
+            state: "",
+            house: "",
+            colony: "",
+            mobile: "",
+            pin: ""
+        }
+    )
     const getProducts = () => {
         axios.get("/products").then(res => {
             setProduct(res.data)
@@ -17,7 +28,7 @@ const Context = (props) => {
         getProducts()
     }, [])
     return (
-        <productContext.Provider value={[product, setProduct]}>
+        <productContext.Provider value={{ product, setProduct, val, setVal }}>
             {props.children}
         </productContext.Provider>
     )

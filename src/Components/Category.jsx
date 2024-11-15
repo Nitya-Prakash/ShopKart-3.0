@@ -3,7 +3,7 @@ import { productContext } from '../Utils/Context'
 import { Link } from 'react-router-dom';
 
 const Category = () => {
-    const [product] = useContext(productContext)
+    const { product } = useContext(productContext)
 
     let distinct_Category = product && product.map(item => item.category);
     distinct_Category = [...new Set(distinct_Category)];
