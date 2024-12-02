@@ -17,6 +17,7 @@ const Context = (props) => {
             pin: ""
         }
     )
+    const [singleProdDeatils, setsingleProdDeatils] = useState(null);
     const getProducts = () => {
         axios.get("/products").then(res => {
             setProduct(res.data)
@@ -28,7 +29,7 @@ const Context = (props) => {
         getProducts()
     }, [])
     return (
-        <productContext.Provider value={{ product, setProduct, val, setVal }}>
+        <productContext.Provider value={{ product, setProduct, val, setVal, singleProdDeatils, setsingleProdDeatils }}>
             {props.children}
         </productContext.Provider>
     )
