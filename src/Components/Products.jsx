@@ -22,13 +22,23 @@ const Products = () => {
 
 
     return (
-        <div className='max-w-screen-xl h-[72vh] m-auto flex flex-wrap items-start justify-start gap-4 p-3 overflow-y-scroll mt-2'>
+        <div className='max-w-screen-xl md:h-[68vh] h-[73vh] m-auto flex flex-wrap items-start justify-center gap-4 p-3 overflow-y-scroll mt-2'>
             {filterProducts && filterProducts.map((item, index) => (
-                <Link to={`/productDetails/${item.id}`} key={index} className='w-[24%] h-[50vh] bg-gray-300 px-4 py-3 rounded-lg cursor-pointer'>
+                <Link
+                    to={`/productDetails/${item.id}`}
+                    key={index}
+                    className='w-full sm:w-[45%] md:w-[30%] lg:w-[23%] h-[45vh] sm:h-[50vh] bg-gray-300 px-4 py-3 rounded-lg cursor-pointer hover:shadow-lg transition-all'
+                >
                     <div className='w-full h-[85%] bg-white rounded-md'>
-                        <img className='w-full h-full mb-3 bg-contain bg-no-repeat bg-center object-contain' src={item.image} alt="" />
+                        <img
+                            className='w-full h-full mb-3 bg-contain bg-no-repeat bg-center object-contain'
+                            src={item.image}
+                            alt={item.title}
+                        />
                     </div>
-                    <h1 className='text-center text-base leading-4 font-medium mt-3 line-clamp-2'>{item.title}</h1>
+                    <h1 className='text-center text-lg md:text-base md:leading-4 leading-5 font-semibold mt-3 line-clamp-2'>
+                        {item.title}
+                    </h1>
                 </Link>
             ))}
         </div>

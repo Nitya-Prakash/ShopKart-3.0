@@ -17,16 +17,20 @@ const Category = () => {
 
 
     return (
-        <div className='max-w-screen-xl h-[15vh] bg-zinc-200 m-auto flex items-center justify-between px-10 py-1 rounded-lg'>
+        <div className='max-w-screen-xl md:h-auto h-20 bg-zinc-200 m-auto flex justify-between items-center px-1 md:px-10 py-14 md:py-3 rounded-lg overflow-hidden'>
             {distinct_Category.map((category, index) => {
                 const categoryData = categoryImages.find(item => item.category === category);
                 const imageUrl = categoryData ? categoryData.img : "img";
                 return (
-                    <Link key={index} to={`/?category=${category}`} className='cursor-pointer items-center flex flex-col w-[20%] h-[80%]'>
-                        <div className='h-[80%]'>
-                            <img src={imageUrl} alt="" className='h-full w-full object-contain object-top' />
+                    <Link
+                        key={index}
+                        to={`/?category=${category}`}
+                        className='cursor-pointer items-center flex flex-col w-[45%] sm:w-[22%] h-20 md:h-24 mb-2 md:mb-0'
+                    >
+                        <div className='h-[55%] md:h-[75%]'>
+                            <img src={imageUrl} alt={category} className='h-full w-full object-contain object-center' />
                         </div>
-                        <h1 className='font-semibold capitalize'>{category}</h1>
+                        <h1 className='text-xs md:text-sm font-bold capitalize text-center mt-1'>{category}</h1>
                     </Link>
                 )
             })}
