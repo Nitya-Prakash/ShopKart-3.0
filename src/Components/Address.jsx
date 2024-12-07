@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import BNNavbar from './BNNavbar'
 import { useNavigate } from 'react-router-dom';
 import { productContext } from '../Utils/Context';
+import { toast } from 'react-toastify';
 
 const Address = () => {
     const navigate = useNavigate();
@@ -28,7 +29,7 @@ const Address = () => {
             return;
         }
         navigate("/buynow");
-        // console.log(val);
+        toast.success("Address Saved Successfully !")
     }
 
 

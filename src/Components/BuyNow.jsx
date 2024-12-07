@@ -4,6 +4,7 @@ import { MdOutlineModeEdit } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router-dom';
 import { productContext } from '../Utils/Context';
 import useProductDetails from '../Utils/useProductDetails';
+import { toast } from 'react-toastify';
 
 const BuyNow = () => {
     const { val } = useContext(productContext);
@@ -13,8 +14,8 @@ const BuyNow = () => {
 
     const placeOrder = () => {
         Object.values(val).some(value => !value)
-            ? alert("Please add your address!")
-            : navigate("/paymentGateway");
+            ? toast.error("Please add your address!")
+            : navigate("/paymentGateway") || toast.success("Thank You For Visiting !!");
     };
 
     const generateQuantityOptions = () => {
@@ -65,7 +66,7 @@ const BuyNow = () => {
                         <div className='w-[20%] h-full'>
                             <img className='w-full h-full object-contain object-center' src={singleProdDeatils.image} alt="" />
                         </div>
-                        <div0>
+                        <div>
                             <h1 className='text-lg font-semibold'>{singleProdDeatils.title}</h1>
                             <h2 className='mt-2 text-sm font-medium text-zinc-500'>{singleProdDeatils.category}</h2>
                             <div className='mt-2 flex items-center gap-2'>
@@ -77,7 +78,7 @@ const BuyNow = () => {
                                 </select>
                             </div>
                             <h1 className='mt-3 text-lg font-medium text-red-600'>$ {totalPrice}</h1>
-                        </div0>
+                        </div>
                     </div>
                 </div>
                 <div className='w-[28%] h-full bg-zinc-200 rounded-md p-3 flex items-end'>

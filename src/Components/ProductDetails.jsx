@@ -1,14 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FiShoppingCart } from 'react-icons/fi';
 import { BsLightning } from 'react-icons/bs';
 import useProductDetails from '../Utils/useProductDetails';
+import { toast } from 'react-toastify';
 
 const ProductDetails = () => {
     const { singleProdDeatils } = useProductDetails();
-
+    const navigate = useNavigate()
     if (!singleProdDeatils) {
         return <div>Loading...</div>;
+    }
+
+    const addToCart = () => {
+        toast.success("Product Added To The Cart");
+        navigate("/cart")
     }
 
     return (
@@ -27,14 +33,14 @@ const ProductDetails = () => {
                     <h2 className='text-2xl mt-4 text-red-600 font-bold'>${singleProdDeatils.price}</h2>
                     <p className='mt-5 w-[80%] text-lg font-medium leading-6'>{singleProdDeatils.description}</p>
                     <div className='mt-8 flex gap-3'>
-                        <Link to="/buynow" className='px-4 py-2 border border-gray-600 rounded-lg flex items-center gap-2'>
+                        <Link to="/buynow" className='px-4 py-2 border border-gray-600 rounded-lg flex items-center gap-2 hover:bg-zinc-300 transition-colors'>
                             <BsLightning />
                             <p>Buy Now</p>
                         </Link>
-                        <Link to="/addtocart" className='px-4 py-2 border border-gray-600 rounded-lg flex items-center gap-2'>
+                        <button onClick={addToCart} className='px-4 py-2 border border-gray-600 rounded-lg flex items-center gap-2 hover:bg-zinc-300 transition-colors'>
                             <FiShoppingCart />
                             <p>Add To Cart</p>
-                        </Link>
+                        </button>
                     </div>
                 </div>
             </div>
